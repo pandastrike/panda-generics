@@ -1,6 +1,6 @@
 # Fairmont
 
-Fairmont is a JavaScript library for functional reactive programming. Fairmont takes full advantage of ES6+ features like iterators (including async iterators), generators, and promises. Inspired by libraries like [Underscore](http://underscorejs.org/) and many others, Fairmont features include:
+[Fairmont](https://github.com/pandastrike/fairmont) is a JavaScript library for functional reactive programming. Fairmont takes full advantage of ES6+ features like iterators (including async iterators), generators, and promises. Inspired by libraries like [Underscore](http://underscorejs.org/) and many others, Fairmont features include:
 
 * reactive programming support through async iterators
 * lazy evaluation on collection operations via iterators
@@ -13,7 +13,7 @@ Fairmont is a JavaScript library for functional reactive programming. Fairmont t
 
 ## Examples
 
-You can get a feel for what Fairmont can do for you by [checking out the examples](./examples).
+You can get a feel for what Fairmont can do for you by [checking out the examples](https://github.com/pandastrike/fairmont-reactive/tree/master/examples).
 
 ## Reference
 
