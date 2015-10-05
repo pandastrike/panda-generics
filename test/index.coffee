@@ -1,6 +1,8 @@
 assert = require "assert"
 Amen = require "amen"
 
+{isType, isMember, isFunction, isString, isNumber, isEqual, eq, lte} = require "fairmont-helpers"
+
 Amen.describe "Multimethods", (context) ->
 
   {Method} = require "../src"
@@ -9,12 +11,11 @@ Amen.describe "Multimethods", (context) ->
 
     fib = Method.create description: "Fibonacci sequence"
 
-    Method.define fib, ((n) -> n <= 0),
+    Method.define fib, (isType Number), (n) -> (fib n - 1) + (fib n - 2)
+    Method.define fib, (eq 1), -> 1
+    Method.define fib, (eq 2), -> 1
+    Method.define fib, (lte 0),
       -> throw new TypeError "Operand must be a postive integer"
-
-    Method.define fib, 1, 1
-    Method.define fib, 2, 1
-    Method.define fib, Number, (n) -> (fib n - 1) + (fib n - 2)
 
     assert (fib 5) == 5
 
@@ -27,12 +28,11 @@ Amen.describe "Multimethods", (context) ->
     b = new B
 
     foo = Method.create()
-    Method.define foo, A, -> "foo: A"
-    Method.define foo, B, -> "foo: B"
-    Method.define foo, A, B, -> "foo: A + B"
-    Method.define foo, B, A, -> "foo: B + A"
-    Method.define foo, a, b, -> "foo: a + b"
-
+    Method.define foo, (isMember A), -> "foo: A"
+    Method.define foo, (isType B), -> "foo: B"
+    Method.define foo, (isMember A), (isMember B), -> "foo: A + B"
+    Method.define foo, (isMember B), (isMember A), -> "foo: B + A"
+    Method.define foo, (eq a), (eq b), -> "foo: a + b"
 
     assert (foo b) == "foo: B"
     assert (foo a, b) == "foo: a + b"
@@ -42,42 +42,30 @@ Amen.describe "Multimethods", (context) ->
 
   context.test "Variadic arguments", ->
 
-    bar = Method.create map: (x) -> [ x ]
-    Method.define bar, String, (x, a...) -> a[0]
-    Method.define bar, Number, (x, a...) -> x
+    bar = Method.create()
+    Method.define bar, String, (-> true), (x, a...) -> a[0]
+    Method.define bar, Number, (-> true), (x, a...) -> x
 
     assert (bar "foo", 1, 2, 3) == 1
 
   context.test "Predicate functions", ->
 
     baz = Method.create()
-    Method.define baz, Boolean, -> false
+    Method.define baz, ((x) -> x != 7), -> false
     Method.define baz, ((x) -> x == 7), (x) -> true
 
     assert (baz 7)
-    assert.throws -> (baz 6)
-
-  context.test "Class methods", ->
-
-    class A
-    class B extends A
-
-    foo = Method.create()
-
-    Method.define foo, A, -> true
-
-    assert (foo B)
+    assert !(baz 6)
 
   context.test "Multimethods are functions", ->
-
-    assert Method.create().constructor == Function
+    assert isFunction Method.create()
 
   context.test "Lookups", ->
 
     foo = Method.create()
 
-    Method.define foo, Number, (x) -> x + x
-    Method.define foo, String, (x) -> false
+    Method.define foo, isNumber, (x) -> x + x
+    Method.define foo, isString, (x) -> false
 
     f = Method.lookup foo, [ 7 ]
     assert (f 7) == 14

@@ -1,6 +1,6 @@
 # Fairmont-Multimethods
 
-Fairmont-Multimethods is a JavaScript library providing support for functional programming in JavaScript. It's part of the [Fairmont][] library. You can use it by itself, or simply as part of the [Fairmont][] library.
+Fairmont-Multimethods is a JavaScript library providing support for multimethods in JavaScript. (See also: our [blog post][] about multimethods.) It's part of the [Fairmont][] library. You can use it by itself, or simply as part of the [Fairmont][] library.
 
 ## Installation
 
@@ -21,3 +21,4 @@ You can get an idea of what we're planning by looking at the [issues list][200].
 [tickets]:https://github.com/pandastrike/fairmont/issues
 [Fairmont]:https://github.com/pandastrike/fairmont
 [wiki]:https://github.com/pandastrike/fairmont/wiki
+[blog post]:https://www.pandastrike.com/posts/20150616-multimethods

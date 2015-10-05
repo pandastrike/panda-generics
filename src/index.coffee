@@ -1,44 +1,41 @@
-lookup = (method, ax) ->
-  best = { p: 0, f: method.default }
-  bx = if method.map? then (method.map ax...) else ax
+lookup = (m, ax) ->
 
-  for [tx, f] in method.entries
-    if tx.length == bx.length
-      p = 0
-      bi = ti = 0
-      while bi < bx.length && ti < tx.length
-        term = tx[ti++]
-        arg = bx[bi++]
-        if term == arg
-          p += 5
-        else if term?.constructor == Function
-          if arg?
-            if term == arg.constructor
-              p += 4
-            else if (arg instanceof term)
-              p += 2
-            else if arg.prototype instanceof term
-              p += 1
-            else if term != Boolean && (term arg) == true
-                p += 5
-            else
-              p = 0
-              break
-          else if term != Boolean && (term arg) == true
-              p += 5
-          else
-            p = 0
-            break
-        else
-          p = 0
-          break
-      if p > 0 && p >= best.p
-        best = { p, f }
+  # go through each definition in our lookup 'table'
+  for [terms, f] in m.entries
 
-  if best.f.constructor == Function
-    best.f
-  else
-    -> best.f
+    # there must be at least one argument per term
+    # (variadic terms can consume multiple arguments,
+    # so the converse is not true)
+    continue if terms.length > ax.length
+
+    # we can't have a match if we don't match any terms
+    match = false
+
+    # each argument must be consumed
+    i = 0
+    while i < ax.length
+
+      # if there's no corresponding term, we have leftover
+      # arguments with no term to consume them, so move on
+      if !(term = terms[i])?
+        match = false
+        break
+
+      # if the term may be variadic (indicated by taking 0 arguments)
+      # try the term with the remaining arguments
+      if term.length == 0
+        match = term ax[i..]...
+        break
+
+      # otherwise, we have the default case, where we try to match
+      # the next argument with the next term
+      break if !(match = term ax[i++])
+
+    # if we ended up with a match, just return the corresponding fn
+    return f if match
+
+  # if exit the loop without returning a match, return the default
+  m.default
 
 dispatch = (method, ax) ->
   f = lookup method, ax
@@ -52,7 +49,7 @@ create = (options) ->
   m
 
 define = (m, terms..., f) ->
-  m.entries.push [terms, f]
+  m.entries.unshift [terms, f]
 
 Method = {create, define, lookup}
 module.exports = {Method}
