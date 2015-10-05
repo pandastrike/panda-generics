@@ -1,7 +1,8 @@
 assert = require "assert"
 Amen = require "amen"
 
-{isType, isMember, isFunction, isString, isNumber, isEqual, eq, lte} = require "fairmont-helpers"
+{isType, isMember, isFunction, isString, isNumber,
+  isEqual, eq, lte} = require "fairmont-helpers"
 
 Amen.describe "Multimethods", (context) ->
 
