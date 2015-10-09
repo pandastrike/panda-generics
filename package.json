@@ -1,6 +1,6 @@
 {
   "name": "fairmont-multimethods",
-  "version": "1.0.0-beta-20",
+  "version": "1.0.0-beta-21",
   "description": "True functional reactive programming for JavaScript.",
   "files": [
     "src/",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "amen": "^1.0.0-alpha-03",
     "coffee-script": "~1.10.0",
-    "fairmont-helpers": "^1.0.0-beta-24",
+    "fairmont-helpers": "^1.0.0-beta-26",
     "json": "^9.0.3"
   },
   "dependencies": {},

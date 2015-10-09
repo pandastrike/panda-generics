@@ -1,7 +1,7 @@
 assert = require "assert"
 Amen = require "amen"
 
-{isType, isMember, isFunction, isString, isNumber,
+{isType, isKind, isFunction, isString, isNumber,
   isEqual, eq, lte} = require "fairmont-helpers"
 
 Amen.describe "Multimethods", (context) ->
@@ -29,10 +29,10 @@ Amen.describe "Multimethods", (context) ->
     b = new B
 
     foo = Method.create()
-    Method.define foo, (isMember A), -> "foo: A"
+    Method.define foo, (isKind A), -> "foo: A"
     Method.define foo, (isType B), -> "foo: B"
-    Method.define foo, (isMember A), (isMember B), -> "foo: A + B"
-    Method.define foo, (isMember B), (isMember A), -> "foo: B + A"
+    Method.define foo, (isKind A), (isKind B), -> "foo: A + B"
+    Method.define foo, (isKind B), (isKind A), -> "foo: B + A"
     Method.define foo, (eq a), (eq b), -> "foo: a + b"
 
     assert (foo b) == "foo: B"
