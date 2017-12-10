@@ -52,4 +52,4 @@ define = (m, terms..., f) ->
   m.entries.unshift [terms, f]
 
 Method = {create, define, lookup}
-module.exports = {Method}
+export {Method}
