@@ -1,18 +1,13 @@
 {
   "name": "fairmont-multimethods",
-  "version": "1.0.1",
-  "description": "True functional reactive programming for JavaScript.",
+  "version": "2.0.0",
+  "description": "Multi-argument dispatch for JavaScript functions",
   "files": [
-    "src/",
-    "lib/",
-    "README.md"
+    "build/npm/lib"
   ],
-  "main": "lib/index.js",
+  "main": "build/npm/lib/index.js",
   "scripts": {
-    "test": "coffee test/index.coffee",
-    "watch": "coffee -o lib/ -cw src/*.*coffee",
-    "prepublish": "coffee -o lib/ -c src/*.*coffee",
-    "postpublish": "(node_modules/.bin/json -f package.json version | xargs -I version git tag -am version version) && git push --tags"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -22,13 +17,15 @@
   "authors": [
     "Dan Yoder"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "amen": "^1.0.0-alpha-03",
-    "coffee-script": "~1.10.0",
-    "fairmont-helpers": "1.0.x",
-    "json": "^9.0.3"
+    "amen": "^2.0.2",
+    "coffeescript": "^2.0.3",
+    "fairmont-build-tools": "^1.0.0",
+    "fairmont-helpers": "^3.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "power-assert": "^1.4.4"
   },
   "dependencies": {},
-  "engine": "node >= 4.0.x"
+  "engine": "node >= 6.10"
 }
