@@ -2,7 +2,7 @@ import assert from "assert"
 import {test, print} from "amen"
 
 {isType, isKind, isFunction, isString, isNumber,
-  isEqual, eq, lte} = require "fairmont-helpers"
+  isEqual, eq, lte} = require "panda-parchment"
 
 import {Method} from "../src"
 

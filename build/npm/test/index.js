@@ -14,7 +14,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var eq, isEqual, isFunction, isKind, isNumber, isString, isType, lte;
 
-({ isType, isKind, isFunction, isString, isNumber, isEqual, eq, lte } = require("fairmont-helpers"));
+({ isType, isKind, isFunction, isString, isNumber, isEqual, eq, lte } = require("panda-parchment"));
 
 _asyncToGenerator(function* () {
   return (0, _amen.print)((yield (0, _amen.test)("Multimethods", [(0, _amen.test)("Fibonacci function", function () {
