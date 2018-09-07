@@ -4,7 +4,7 @@ import {test, print} from "amen"
 {isType, isKind, isFunction, isString, isNumber,
   isEqual, eq, lte} = require "fairmont-helpers"
 
-import {Method} from "../lib"
+import {Method} from "../src"
 
 do ->
   print await test "Multimethods", [

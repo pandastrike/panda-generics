@@ -1,11 +1,11 @@
 {
-  "name": "fairmont-multimethods",
-  "version": "2.0.2",
-  "description": "Multi-argument dispatch for JavaScript functions",
+  "name": "panda-generics",
+  "version": "1.0.0",
+  "description": "Generic functions (multi-argument dispatch) for JavaScript.",
   "files": [
-    "build/npm/lib"
+    "build/npm/src"
   ],
-  "main": "build/npm/lib/index.js",
+  "main": "build/npm/src/index.js",
   "scripts": {
     "test": "gulp test"
   },
@@ -13,19 +13,22 @@
     "type": "git",
     "url": "git://github.com/dyoder/fairmont.git"
   },
-  "keywords": [],
+  "keywords": [
+    "functional programming",
+    "generic functions",
+    "multimethods"
+  ],
   "authors": [
     "Dan Yoder"
   ],
   "license": "MIT",
   "devDependencies": {
     "amen": "^2.0.2",
-    "coffeescript": "^2.0.3",
-    "fairmont-build-tools": "^1.0.0",
-    "fairmont-helpers": "^3.0.0",
+    "babel-preset-env": "^1.7.0",
+    "fairmont-helpers": "^3.3.2",
     "gulp": "github:gulpjs/gulp#4.0",
-    "power-assert": "^1.4.4"
+    "panda-builder": "^1.0.0"
   },
   "dependencies": {},
-  "engine": "node >= 6.10"
+  "engine": "node >= 8.10"
 }

@@ -1,4 +1,4 @@
-tools = require "fairmont-build-tools"
+tools = require "panda-builder"
 {target} = tools require "gulp"
 
 target "npm"

@@ -1,10 +1,10 @@
-# Fairmont-Multimethods
+# Panda Generics
 
-Fairmont-Multimethods is a JavaScript library providing support for multimethods in JavaScript.
+Panda Generics brings generics, also known as multi-methods, to JavaScript. Generics are great for functional programming because they offer multi-argument dispatch. That is, you aren't limited to an implicit first argument as you are with object-oriented methods.
 
 ## Installation
 
-`npm i -S fairmont-multimethods`
+`npm i panda-generics`
 
 ## Usage
 
@@ -41,5 +41,3 @@ equal { x: 1, y: 2 }, { x: 1, y: 2 } # => true, deep equality
 equal [1..5], [1..5] # true, deep equality
 equal { x: 1, y: 2}, [1..5] # false
 ```
-
-[API documentation](https://github.com/pandastrike/fairmont/wiki/API-Reference#method).
