@@ -1,6 +1,6 @@
 {
   "name": "panda-generics",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Generic functions (multi-argument dispatch) for JavaScript.",
   "files": [
     "build/npm/src"
