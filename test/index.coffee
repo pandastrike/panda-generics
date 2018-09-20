@@ -1,5 +1,5 @@
 import assert from "assert"
-import {test, print} from "amen"
+import {test, print, success} from "amen"
 
 {isType, isKind, isFunction, isString, isNumber,
   isEqual, eq, lte} = require "panda-parchment"
@@ -72,3 +72,5 @@ do ->
       assert (f 7) == 14
 
   ]
+
+  process.exit if success then 0 else 1

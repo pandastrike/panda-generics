@@ -25,8 +25,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
-    "amen": "^2.0.5",
-    "babel-preset-env": "^1.7.0",
+    "amen": "^2.1.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "panda-builder": "^2.3.1",
     "panda-parchment": "^4.0.0"
