@@ -1,6 +1,6 @@
 {
   "name": "panda-generics",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "Generic functions (multi-argument dispatch) for JavaScript.",
   "files": [
     "build/npm/src"
@@ -23,12 +23,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.1.0",
+    "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "amen": "^2.1.0",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "panda-builder": "^2.3.3",
-    "panda-parchment": "^4.0.3"
+    "gulp": "github:gulpjs/gulp#v4.0.0-alpha.3",
+    "panda-builder": "^2.4.1",
+    "panda-parchment": "^4.0.4"
   },
   "dependencies": {},
   "engine": "node >= 8.10"
