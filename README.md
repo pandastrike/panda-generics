@@ -9,15 +9,18 @@ Panda Generics brings generics, also known as multi-methods, to JavaScript. Gene
 ## Usage
 
 ```coffee
+import Generics from "panda-generics"
+import {isObject} from "panda-parchment"
 
-equal = Method.create
+equal = Generics.create
+  name: "equal"
   description: "'Deep' equality operator"
   default: (a, b) -> a == b # fallback to shallow equality
 
 # when comparing objects, recursively check the values
 # corresponding to the union of their properties—
 # return false on the first inequality
-Method.define equal, isObject, isObject, (a, b) ->
+Generics.define equal, isObject, isObject, (a, b) ->
   (a == b) || do ->
     keys = new Set (Object.keys a)..., (Object.keys b)...
     for key from keys
@@ -28,7 +31,7 @@ Method.define equal, isObject, isObject, (a, b) ->
 # when comparing arrays, recursively check values
 # after making sure they're the same length
 # return false on the first inequality
-Method.define equal, isArray, isArray, (ax, bx) ->
+Generics.define equal, isArray, isArray, (ax, bx) ->
   (ax == bx) || do ->
     return false if ax.length != bx.length
     for i in [0..ax.length]
