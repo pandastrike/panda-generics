@@ -27,6 +27,7 @@ do ->
           assert (fib 5) == 5
 
         test "throws with name/arguments on type error", ->
+          console.warn "throws test only works on node 10+"
           assert.throws (-> fib 0),
             message: "fib: Invalid arguments."
             arguments: [ 0 ]
