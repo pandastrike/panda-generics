@@ -2,10 +2,12 @@
   "name": "panda-generics",
   "version": "6.0.2",
   "description": "Generic functions (multi-argument dispatch) for JavaScript.",
+  "main": "build/npm/src/index.js",
+  "main:coffee": "src/index.coffee",
   "files": [
+    "src",
     "build/npm/src"
   ],
-  "main": "build/npm/src/index.js",
   "scripts": {
     "test": "p9k npm:test"
   },
